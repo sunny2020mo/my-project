@@ -1,0 +1,31 @@
+<html>
+    <title>just a test</title>
+    <p id='h1' onclick='show_time()'>head</p>
+    <script>
+        if(window.localStorage.getItem('time')==null){
+            window.localStorage.setItem('time',1)
+            document.getElementById('h1').innerHTML = 'this html has opened 1 time'
+
+        }else{
+            document.getElementById('h1').innerHTML = 'this html has opened '+window.localStorage.getItem('time')+' times'
+        }
+        window.localStorage.setItem('time',Number(window.localStorage.getItem('time'))+1)
+        function b_in_click(){
+            window.localStorage.setItem('s1',document.getElementById('i1').value)
+            alert('saved')
+        }
+        function b_get_click(){
+            alert(window.localStorage.getItem('s1'))
+        }
+        function b_clear_click(){
+            window.localStorage.clear('s1')
+            window.localStorage.clear('time')
+        }
+    </script>
+    <div><input placeholder='enter something~' id='i1'/></div>
+    <div>
+        <input type='button' id='b_in' value='b_in' onclick='b_in_click()'/>
+        <input type='button' id='b_get' value='b_get' onclick='b_get_click()'/>
+        <input type='button' id='b_clear_all' value='b_clear' onclick='b_clear_click()'/>
+    </div>
+</html>
